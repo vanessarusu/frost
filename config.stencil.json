@@ -1,0 +1,11 @@
+{
+  "customLayouts": {
+    "brand": {},
+    "category": {},
+    "page": {},
+    "product": {}
+  },
+  "apiHost": "https://api.bigcommerce.com",
+  "normalStoreUrl": "https://frost-staging.mybigcommerce.com",
+  "port": 3000
+}
