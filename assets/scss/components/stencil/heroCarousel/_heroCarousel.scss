@@ -14,223 +14,257 @@
 // -----------------------------------------------------------------------------
 
 .heroCarousel {
-    margin-bottom: (spacing("double") + spacing("single"));
-    margin-top: -(spacing("single")); // 3
-    min-width: 100%;
-    width: 1px;
+  margin-bottom: (spacing("double") + spacing("single"));
+  margin-top: -(spacing("single")); // 3
+  min-width: 100%;
+  width: 1px;
+
+  @include breakpoint("medium") {
+    margin-top: -(spacing("single") + spacing("base")); // 3
+  }
+
+  &.slick-initialized {
+    @include breakpoint("small") {
+      max-height: remCalc(400px);
+    }
 
     @include breakpoint("medium") {
-        margin-top: -(spacing("single") + spacing("base")); // 3
+      //   max-height: remCalc(600px);
+      max-height: 800px;
+      height: 100%;
     }
+  }
+
+  // for IE
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    opacity: 0;
 
     &.slick-initialized {
+      opacity: 1;
+    }
+  }
+
+  &:not(.slick-initialized)
+    :not(.heroCarousel-slide--first).heroCarousel-slide {
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .slick-next,
+  .slick-prev {
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .slick-next {
+    right: 15px;
+
+    @include breakpoint("medium") {
+      right: 25px;
+    }
+  }
+
+  .slick-prev {
+    left: 15px;
+
+    @include breakpoint("medium") {
+      left: 25px;
+    }
+  }
+
+  .slick-dots {
+    bottom: spacing("third");
+
+    @include breakpoint("medium") {
+      bottom: spacing("single");
+    }
+
+    li {
+      @include carouselOpaqueBackgrounds($slick-dot-bgColor);
+    }
+  }
+
+  .slick-slide {
+    &.is-square-image-type {
+      .heroCarousel-image-wrapper {
+        height: 100vw;
+      }
+    }
+
+    &.is-vertical-image-type {
+      .heroCarousel-image-wrapper {
+        height: 110vw;
+      }
+    }
+
+    &.is-square-image-type,
+    &.is-vertical-image-type {
+      .heroCarousel-image-wrapper {
         @include breakpoint("small") {
-            max-height: remCalc(400px);
+          height: 56.25vw;
+          height: 100vh;
         }
-
-        @include breakpoint("medium") {
-            max-height: remCalc(600px);
-        }
+      }
     }
 
-    // for IE
-    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-        opacity: 0;
-
-        &.slick-initialized {
-            opacity: 1;
-        }
+    &.is-image-error {
+      .heroCarousel-image-wrapper {
+        background: url("../img/hero-carousel-image-load-error.svg") center
+          center no-repeat;
+        background-size: contain;
+      }
     }
-
-    &:not(.slick-initialized) :not(.heroCarousel-slide--first).heroCarousel-slide {
-        display: none;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .slick-next,
-    .slick-prev {
-        margin: 0;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .slick-next {
-        right: 15px;
-
-        @include breakpoint("medium") {
-            right: 25px;
-        }
-    }
-
-    .slick-prev {
-        left: 15px;
-
-        @include breakpoint("medium") {
-            left: 25px;
-        }
-    }
-
-    .slick-dots {
-        bottom: spacing("third");
-
-        @include breakpoint("medium") {
-            bottom: spacing("single");
-        }
-
-        li {
-            @include carouselOpaqueBackgrounds($slick-dot-bgColor);
-        }
-    }
-
-    .slick-slide {
-        &.is-square-image-type {
-            .heroCarousel-image-wrapper {
-                height: 100vw;
-            }
-        }
-
-        &.is-vertical-image-type {
-            .heroCarousel-image-wrapper {
-                height: 110vw;
-            }
-        }
-
-        &.is-square-image-type,
-        &.is-vertical-image-type {
-            .heroCarousel-image-wrapper {
-                @include breakpoint("small") {
-                    height: 56.25vw;
-                }
-            }
-        }
-
-        &.is-image-error {
-            .heroCarousel-image-wrapper {
-                background: url("../img/hero-carousel-image-load-error.svg") center center no-repeat;
-                background-size: contain;    
-            }
-        }
-    }
+  }
 }
 
 .heroCarousel-slide {
-    position: relative;
+  position: relative;
+  width: 100%;
+  max-width: 92%;
+  margin: 0 auto;
 
-    a {
-        text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+
+  .heroCarousel-image {
+    height: 100%;
+    object-fit: contain;
+    object-position: 50% 0%;
+    width: 100%;
+
+    @include breakpoint("small") {
+      object-position: 50% 50%;
     }
+  }
+
+  &.stretch {
+    .heroCarousel-image {
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+
+    &.compat-object-fit {
+      // 1
+      .heroCarousel-image {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  &.compat-object-fit {
+    // 1
+    overflow: hidden;
 
     .heroCarousel-image {
-        height: 100%;
-        object-fit: contain;
-        object-position: 50% 0%;
-        width: 100%;
+      width: auto;
+    }
+  }
 
-        @include breakpoint("small") {
-            object-position: 50% 50%;
-        }
+  .heroCarousel-image-wrapper {
+    align-items: flex-start;
+    display: flex;
+    height: 300px;
+    // height: 100%;
+    justify-content: center;
+    max-height: 100vh;
+    transition: height 0.3s ease;
+
+    @include breakpoint("small") {
+      max-height: remCalc(400px);
+      height: 400px;
     }
 
-    &.stretch {
-        .heroCarousel-image {
-            object-fit: cover;
-            object-position: 50% 50%;
-        }
-
-        &.compat-object-fit { // 1
-            .heroCarousel-image {
-                height: 100%;
-                width: 100%;
-            }
-        }
+    @include breakpoint("medium") {
+      max-height: 600px;
+      max-height: 65vh;
+      height: 400px;
     }
 
-    &.compat-object-fit { // 1
-        overflow: hidden;
-
-        .heroCarousel-image {
-            width: auto;
-        }
+    @include breakpoint("large") {
+      height: 800px;
     }
-
-    .heroCarousel-image-wrapper {
-        align-items: flex-start;
-        display: flex;
-        height: 56.25vw;
-        justify-content: center;
-        max-height: 100vh;
-        transition: height 0.3s ease;
-
-        @include breakpoint("small") {
-            max-height: remCalc(400px);
-        }
-
-        @include breakpoint("medium") {
-            max-height: remCalc(600px);
-        }
-    }
+  }
 }
 
 .heroCarousel-content {
+  background-color: rgba($carousel-bgColor, 1);
+  padding: spacing("half") spacing("single") (spacing("double"));
+  text-align: left;
+
+  @include breakpoint("small") {
+    @include carouselOpaqueBackgrounds;
     background-color: rgba($carousel-bgColor, 1);
-    padding: spacing("half") spacing("single") (spacing("double"));
-    text-align: center;
+    left: 0;
+    min-height: 70%;
+    overflow: auto;
+    padding: 4% 5%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: fit-content;
+    width: 50%;
+    max-width: 830px;
+    background: url(/assets/img/watermarks/cupcake-slider-background-watermark.svg),
+      rgba($carousel-bgColor, 1);
+    background-position: bottom left;
+    background-repeat: no-repeat;
 
-    @include breakpoint("small") {
-        @include carouselOpaqueBackgrounds;
-        background-color: rgba($carousel-bgColor, 0.9);
-        left: 0;
-        margin: 0 auto;
-        max-height: 80%;
-        overflow: auto;
-        padding: spacing("single") * 1.5;
-        padding: spacing("single");
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: remCalc(700px);
-        width: 70%;
-
-        &.heroCarousel-content--empty {
-            background-color: transparent;
-            left: 50%;
-            overflow: visible;
-            padding: 0;
-            right: auto;
-            transform: translateX(-50%) translateY(-50%);
-            width: auto;
-        }
+    &.heroCarousel-content--empty {
+      background-color: transparent;
+      left: 50%;
+      overflow: visible;
+      padding: 0;
+      right: auto;
+      transform: translateX(-50%) translateY(-50%);
+      width: auto;
     }
+  }
 }
 
 .heroCarousel-title {
-    color: $carousel-title-color;
-    font-size: fontSize("small");
-    margin: 0;
+  color: $carousel-title-color;
+  font-weight: 500;
+  font-size: fontSize("small");
+  margin: 0;
 
-    @include breakpoint("medium") {
-        font-size: fontSize("hero");
-    }
+  @include breakpoint("medium") {
+    // font-size: fontSize("hero");
+    font-size: 60px;
+    font-size: clamp(2vw, 60px, 3.5vw);
+
+    line-height: 1.2;
+  }
 }
 
 .heroCarousel-description {
-    color: $carousel-description-color;
-    font-size: fontSize("tiny");
-    margin: 0;
+  color: $carousel-description-color;
+  font-size: fontSize("tiny");
+  margin: 0;
+  margin-top: 1rem;
 
-    @include breakpoint("small") {
-        font-size: fontSize("smallest");
-    }
+  @include breakpoint("small") {
+  }
 
-    @include breakpoint("medium") {
-        font-size: fontSize("smaller");
-    }
+  @include breakpoint("medium") {
+    font-size: fontSize("large");
+  }
 }
 
 .heroCarousel-action {
-    margin: spacing("single") 0 0;
+  margin: spacing("single") 0 0;
+  background-color: #db5b7e;
+  border-radius: 3px;
+  border: none;
+  font-size: 24px;
+  padding: 28px 30px 30px 34px;
+  font-weight: 100;
+  margin-top: 75px;
 }

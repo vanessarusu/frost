@@ -516,6 +516,13 @@
         "type": "color",
         "label": "i18n.FieldBorderActive",
         "id": "input-border-color-active"
+      },
+      {
+        "type": "text",
+        "label": "i18n.StoreAddressHeader",
+        "id": "store-address-header",
+        "reference": "store-address-header",
+        "reference_default": "none"
       }
     ]
   },
