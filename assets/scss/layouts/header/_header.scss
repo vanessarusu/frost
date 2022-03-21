@@ -219,6 +219,7 @@ $custom-medium-breakpoint: 1200px;
 
 .top-navigation-container {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   width: 100%;
   flex-wrap: wrap;

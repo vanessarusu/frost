@@ -28,7 +28,8 @@
             {{> components/common/alert/alert-success success}}
         {{/if}}
     {{/each}}
-
+    <div class="swoosh-background-yellow">
+    <div class="container">
     <section class="productView-images" data-image-gallery>
         {{!--
             Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
@@ -63,7 +64,7 @@
                 {{/if}}
             </div>
         </figure>
-        <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
+        <!-- <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
                 "dots": false,
@@ -89,12 +90,12 @@
                     </a>
                 </li>
             {{/each}}
-        </ul>
+        </ul> -->
     </section>
 
-    <section class="productView-details product-data">
+    <section class="productView-details product-data custom-productView-details">
         <div class="productView-product">
-            <h1 class="productView-title">{{product.title}}</h1>
+            <h1 class="custom-productView-title">{{product.title}}</h1>
             {{#if product.brand}}
                 <h2 class="productView-brand">
                     <a href="{{product.brand.url}}"><span>{{product.brand.name}}</span></a>
@@ -111,6 +112,10 @@
                 {{else}}
                     {{> components/common/login-for-pricing}}
                 {{/or}}
+                <span class="underline-pink"></span>
+            </div>
+            <div class="custom-product-description">
+                {{> components/products/description}}
             </div>
             {{{region name="product_below_price"}}}
             <div class="productView-rating">
@@ -146,8 +151,10 @@
                     <dd class="productView-info-value">{{product.condition}}</dd>
                 {{/if}}
                 {{#if product.availability}}
-                    <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
-                    <dd class="productView-info-value">{{product.availability}}</dd>
+                <p class="custom-attribute">
+                    <span class="custom-productView-info-name">{{lang 'products.availability'}}</span>
+                    <span class="custom-productView-info-value">{{product.availability}}</span>
+                </p>
                 {{/if}}
                 {{#all product.weight theme_settings.show_product_weight}}
                     <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
@@ -259,16 +266,49 @@
                 {{> components/common/wishlist-dropdown}}
             {{/if}}
         </div>
-        {{> components/common/share url=product.url}}
+        <!-- {{> components/common/share url=product.url}} -->
     </section>
+    <div style="clear: both;"></div>
+</div>
+<div style="clear: both;"></div>
+</div>
+    
 
-    <article class="productView-description">
+    <!-- <article class="productView-description">
         {{#if theme_settings.show_product_details_tabs}}
             {{> components/products/description-tabs}}
         {{else}}
             {{> components/products/description}}
         {{/if}}
+    </article> -->
+
+
+    {{#if product.related_products}}
+    <article class="custom-related-products-container">
+        <h2 class="underline-pink">Other Favorites</h2>
+        {{#each product.related_products}}
+        <div class="custom-related-products">
+            <div class="custom-related-item">
+                <a href="{{url}}">
+                    <figure class="custom-card-img-container">
+                        {{> components/common/responsive-img
+                            image=image
+                            class="custom-card-image"
+                            fallback_size=theme_settings.productgallery_size
+                            lazyload=theme_settings.lazyload_mode
+                            default_image=theme_settings.default_image_product
+                        }}
+                        <figcaption>
+                            {{name}}
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+        {{/each}}
+        
     </article>
+    {{/if}}
 </div>
 
 <div id="previewModal" class="modal modal--large" data-reveal>

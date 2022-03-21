@@ -1,0 +1,81 @@
+---
+category:
+  shop_by_price: false
+  products:
+    limit: { { theme_settings.categorypage_products_per_page } }
+---
+
+{{inject "categoryProductsPerPage"
+theme_settings.categorypage_products_per_page}} {{inject "categoryId"
+category.id}} {{#partial "head"}} {{#if pagination.category.previous}}
+<link rel="prev" href="{{pagination.category.previous}}" />
+{{/if}} {{#if pagination.category.next}}
+<link rel="next" href="{{pagination.category.next}}" />
+{{/if}} {{/partial}} {{#partial "page"}}
+<h1 class="page-heading sr-only">{{category.name}}</h1>
+<img
+  class="category-watermark-icon-right"
+  src="{{cdn '/assets/img/watermarks/cupcake-icon-right-pink.svg'}}"
+  alt=""
+/>
+<div class="container">{{{region name="category_below_header"}}}</div>
+<div class="swoosh-background-yellow">
+  <div class="container">{{{region name="daily_menu_intro_panel"}}}</div>
+  <div class="container">
+    <div class="daily-menu-navigation">
+      <nav>
+        <ul>
+          <li>
+            <a data-click="1" href="#">Monday</a>
+          </li>
+          <span>/</span>
+          <li>
+            <a data-click="2" href="#">Tuesday</a>
+          </li>
+          <span>/</span>
+          <li>
+            <a data-click="3" href="#">Wednesday</a>
+          </li>
+          <span>/</span>
+          <li>
+            <a data-click="4" href="#">Thursday</a>
+          </li>
+          <span>/</span>
+          <li>
+            <a data-click="5" href="#">Friday</a>
+          </li>
+          <span>/</span>
+          <li>
+            <a data-click="6" href="#">Saturday</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="daily-menu-container">
+      <div class="daily-menu-item monday day-1 closed">
+        {{{region name="daily_menu_area-monday"}}}
+      </div>
+      <div class="daily-menu-item tuesday day-2 closed">
+        {{{region name="daily_menu_area-tuesday"}}}
+      </div>
+      <div class="daily-menu-item wednesday day-3 closed">
+        {{{region name="daily_menu_area-wednesday"}}}
+      </div>
+      <div class="daily-menu-item thursday day-4 closed">
+        {{{region name="daily_menu_area-thursday"}}}
+      </div>
+      <div class="daily-menu-item friday day-5 closed">
+        {{{region name="daily_menu_area-friday"}}}
+      </div>
+      <div class="daily-menu-item saturday day-6 closed">
+        {{{region name="daily_menu_area-saturday"}}}
+      </div>
+    </div>
+  </div>
+</div>
+{{/partial}} {{> layout/base}}
+
+<script>
+  window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";
+</script>
+<script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>

@@ -1,0 +1,34 @@
+html,
+body,
+p {
+  line-height: 1.4;
+}
+
+h2 {
+  color: stencilColor("color-textHeading");
+
+  font-size: 54px;
+  font-size: clamp(2rem, 54px, 10vw);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.underline-pink {
+  position: relative;
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.underline-pink:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 40px;
+  height: 5px;
+  background-color: #ef658a;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: -48px;
+  border-radius: 2px;
+}

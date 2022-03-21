@@ -1,0 +1,35 @@
+div[id*="product-set-container-"] {
+  a {
+    font-size: 20px;
+    margin-top: 26px;
+    display: block;
+    font-weight: 100;
+    border-radius: 4px;
+  }
+  [aria-label="Product name"] {
+    & > a > div {
+      border-radius: 4px;
+    }
+  }
+
+  @include breakpoint("large") {
+    .sd-product-set__arrow--left {
+      transform: translateX(-40px);
+    }
+
+    .sd-product-set__arrow--right {
+      transform: translateX(40px);
+    }
+    .sd-product-set__bullet {
+      display: none;
+    }
+
+    button {
+      background: transparent !important;
+      color: stencilColor("color-textBase") !important;
+      svg path {
+        fill: stencilColor("color-textBase");
+      }
+    }
+  }
+}

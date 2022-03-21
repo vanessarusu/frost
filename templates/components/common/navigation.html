@@ -2,7 +2,10 @@
   <p class="store-address-header">
     {{#if theme_settings.store-address-header}}
     <span>
-      <img src="/assets/img/icons/location-icon.svg" alt="" />
+      <img
+        src="{{cdn 'assets/img/icons/location-icon.svg'}}"
+        alt="Location icon"
+      />
     </span>
     {{theme_settings.store-address-header}} {{/if}}
   </p>

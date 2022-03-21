@@ -1,0 +1,12 @@
+::selection {
+  background: stencilColor("color-primary");
+  color: stencilColor("color-white");
+}
+
+.text-center {
+  text-align: center;
+}
+
+.sr-only {
+  display: none;
+}

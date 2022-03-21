@@ -1,0 +1,17 @@
+.swoosh-background-yellow {
+  background: url(../img/swoosh/yellow-swoosh-bg.svg), #fffcf0;
+  background-position: top center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+}
+
+.swoosh-background-teal {
+  background: url(../img/swoosh/teal-swoosh-bg.svg), #15aaaa;
+  background-position: top center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: -10;
+}

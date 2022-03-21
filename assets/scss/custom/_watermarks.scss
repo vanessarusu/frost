@@ -1,0 +1,50 @@
+.home-watermark-icon-left,
+.home-watermark-icon-right {
+  width: 100%;
+  max-width: 110px;
+  position: absolute;
+  z-index: -10;
+}
+
+.home-watermark-icon-right {
+  right: 0;
+  top: -150px;
+}
+
+.home-watermark-icon-left {
+  left: 0;
+  top: -850px;
+}
+.category-watermark-icon-right {
+  position: absolute;
+  right: 0;
+  top: 200px;
+  max-width: 220px;
+}
+
+.baked-fresh-watermark-right {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 240px;
+  height: 314px;
+  background: url(/assets/img/watermarks/baked-fresh-yum-watermark-right-pink.svg)
+    center center no-repeat;
+  background-size: contain;
+  z-index: -10;
+}
+
+@media (max-width: 700px) {
+  .baked-fresh-watermark-right,
+  .category-watermark-icon-right {
+    max-width: 180px;
+  }
+}
+
+@include breakpoint("large") {
+  .home-watermark-icon-left,
+  .home-watermark-icon-right {
+    width: 100%;
+    max-width: 240px;
+  }
+}

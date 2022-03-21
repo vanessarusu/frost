@@ -4310,5 +4310,17 @@
     "sv": "Knappbehållarens storlek",
     "es-MX": "Tamaño del contenedor de botones",
     "pt-BR": "Tamanho do contêiner dos botões"
+  },
+  "i18n.StoreAddressHeader" : {
+    "default": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "de": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "es": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "fr": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "it": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "nl": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "pt": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "sv": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "es-MX": "6777 Woodlands Pkwy #304 The Woodlands, TX",
+    "pt-BR": "6777 Woodlands Pkwy #304 The Woodlands, TX"
   }
 }

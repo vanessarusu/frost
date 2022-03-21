@@ -3,9 +3,9 @@
  * if you decide to change breakpoint values
  */
 const breakpointSizes = {
-    large: 1261,
-    medium: 801,
-    small: 551,
+  large: 1261,
+  medium: 1024,
+  small: 900,
 };
 
 /**
@@ -14,13 +14,13 @@ const breakpointSizes = {
  * @return {MediaQueryList|null}
  */
 export default function mediaQueryListFactory(breakpointName) {
-    if (!breakpointName || !window.matchMedia) {
-        return null;
-    }
+  if (!breakpointName || !window.matchMedia) {
+    return null;
+  }
 
-    const breakpoint = breakpointSizes[breakpointName];
-    const mediaQuery = `(min-width: ${breakpoint}px)`;
-    const mediaQueryList = window.matchMedia(mediaQuery);
+  const breakpoint = breakpointSizes[breakpointName];
+  const mediaQuery = `(min-width: ${breakpoint}px)`;
+  const mediaQueryList = window.matchMedia(mediaQuery);
 
-    return mediaQueryList;
+  return mediaQueryList;
 }

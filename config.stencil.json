@@ -1,7 +1,9 @@
 {
   "customLayouts": {
     "brand": {},
-    "category": {},
+    "category": {
+      "custom-category.html":"/cupcakes/"
+    },
     "page": {},
     "product": {}
   },
