@@ -1,11 +1,8 @@
 export default function DailyMenu() {
-  //   const d = new Date();
-  //   d.toLocaleString("en-US", { timeZone: "America/Chicago" });
   const d = new Date(
     new Date().toLocaleString("en-US", { timeZone: "America/Chicago" })
-  ); // timezone ex: Asia/Jerusalem
+  );
 
-  console.log(d);
   let day = d.getDay();
   const dayContainers = document.querySelectorAll(".daily-menu-item");
   const navLinks = document.querySelectorAll(".daily-menu-navigation a");
@@ -22,6 +19,17 @@ export default function DailyMenu() {
         parentToggle(this.getAttribute("data-click"));
       });
     });
+  }
+
+  if (document.referrer.includes("/manage/page-builder")) {
+    console.log("in page builder mode");
+
+    dayContainers.forEach((el) => {
+      el.classList.add("open");
+      el.classList.remove("closed");
+    });
+
+    return;
   }
 
   function parentToggle(day) {

@@ -1,6 +1,6 @@
 .sprinkle-image-pink {
   display: inline-block;
-  background: url(/assets/img/icons/pink-sprinkles.svg) center center no-repeat;
+  background: url(../img/icons/pink-sprinkles.svg) center center no-repeat;
   background-size: contain;
   width: 20px;
   height: 30px;
@@ -10,8 +10,7 @@
 @include breakpoint("large") {
   .sprinkle-image-pink {
     display: inline-block;
-    background: url(/assets/img/icons/pink-sprinkles.svg) center center
-      no-repeat;
+    background: url(../img/icons/pink-sprinkles.svg) center center no-repeat;
     background-size: contain;
     width: 44px;
     height: 64px;
@@ -26,33 +25,33 @@
   height: 110px;
   background-size: contain;
   margin-bottom: 44px;
-  background-position: center;
+  background-position: left center;
   background-repeat: no-repeat;
   margin: -20px auto;
   display: block;
 
   @include breakpoint("large") {
     max-width: 440px;
-    margin: 0 0 44px;
+    margin: 0 0 32px;
   }
 
   &.monday {
-    background-image: url(/assets/img/typography/Monday-Typography.svg);
+    background-image: url(../img/typography/Monday-Typography.svg);
   }
   &.tuesday {
-    background-image: url(/assets/img/typography/Tuesday-Typography.svg);
+    background-image: url(../img/typography/Tuesday-Typography.svg);
   }
   &.wednesday {
-    background-image: url(/assets/img/typography/Wednesday-Typography.svg);
+    background-image: url(../img/typography/Wednesday-Typography.svg);
   }
   &.thursday {
-    background-image: url(/assets/img/typography/Thursday-Typography.svg);
+    background-image: url(../img/typography/Thursday-Typography.svg);
   }
   &.friday {
-    background-image: url(/assets/img/typography/Friday-Typography.svg);
+    background-image: url(../img/typography/Friday-Typography.svg);
   }
   &.saturday {
-    background-image: url(/assets/img/typography/Saturday-Typography.svg);
+    background-image: url(../img/typography/Saturday-Typography.svg);
   }
 }
 
@@ -60,7 +59,7 @@
   nav {
     max-width: 90%;
     width: 100%;
-    margin: 0 auto 20px;
+    margin: 0 auto 56px;
     padding: 20px;
     background: stencilColor("color-textHeading");
     border-radius: 9px;
@@ -150,7 +149,18 @@
 }
 
 .daily-menu-container {
+  padding-bottom: 200px;
+
   .daily-menu-item {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include breakpoint("small") {
+      flex-wrap: nowrap;
+    }
+
     div[id^="bc-product"] {
       a {
         font-size: 23px;
@@ -175,44 +185,45 @@
       }
     }
     &.open {
-      display: block;
+      display: flex;
     }
     &.closed {
       display: none;
     }
   }
 
-  [data-content-region^="daily_menu_area-"] {
-    & > div > div {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
+  // [data-content-region^="daily_menu_area-"] {
+  //   & > div > div {
+  //     display: grid;
+  //     grid-template-columns: 1fr;
+  //   }
 
-    div[data-sub-layout] {
-      text-align: center;
-      max-width: 320px;
-      margin: 0 auto;
-      flex-basis: 100%;
-      display: block;
-      padding: 0;
-      box-sizing: border-box;
-      grid-column: span 1;
+  //   div[data-sub-layout] {
+  //     text-align: center;
+  //     max-width: 400px;
+  //     margin: 0 auto;
+  //     flex-basis: 100%;
+  //     width: 100%;
+  //     display: block;
+  //     padding: 0;
+  //     box-sizing: border-box;
+  //     grid-column: span 1;
 
-      p {
-        text-align: center;
-      }
-      div[id^="bc-product"] {
-        margin-bottom: 40px;
-      }
-    }
+  //     p {
+  //       text-align: center;
+  //     }
+  //     div[id^="bc-product"] {
+  //       margin-bottom: 40px;
+  //     }
+  //   }
 
-    div[data-sub-layout]:first-of-type {
-      width: 100%;
-      flex-basis: 100%;
-      grid-column: 1 / -1;
-      margin-bottom: 60px;
-    }
-  }
+  //   div[data-sub-layout]:first-of-type {
+  //     width: 100%;
+  //     flex-basis: 100%;
+  //     grid-column: 1 / -1;
+  //     margin-bottom: 60px;
+  //   }
+  // }
 
   @media (min-width: 700px) and (max-width: 1260px) {
     [data-content-region^="daily_menu_area-"] {
@@ -246,9 +257,13 @@
   @include breakpoint("large") {
     [data-content-region^="daily_menu_area-"] {
       & > div > div {
-        display: grid;
-        grid-template-columns: 4fr 1fr 1fr 1fr;
-        grid-gap: 16px;
+        // display: grid;
+        // // grid-template-columns: 4fr 1fr 1fr 1fr;
+        // grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(
+        //     0,
+        //     1fr
+        //   );
+        // grid-gap: 16px;
 
         div[data-sub-layout] {
           max-width: 100%;

@@ -2,16 +2,19 @@
     <div class="navPages-quickSearch">
         {{> components/common/quick-search name='nav-menu-quick-search'}}
     </div>
-    <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
+    <!-- <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
         {{#each categories}}
             <li class="navPages-item">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
                 {{> components/common/navigation-list}}
+                
             {{/if}}
             {{#if ../theme_settings.navigation_design '===' 'alternate'}}
                 {{> components/common/navigation-list-alternate}}
+
             {{/if}}
             </li>
+            
         {{/each}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
@@ -25,7 +28,133 @@
                  </li>
              {{/each}}
         {{/unless}}
+    </ul> -->
+
+    <ul class="navPages-list navPages-list-custom navPages-list-depth-max">
+        <li class="navPages-item">
+            <a href="/cupcakes/"
+            class="navPages-action has-subMenu"
+            data-collapsible="navPages-1">
+                Daily Menu
+                <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                    <svg><use xlink:href="#icon-chevron-down" /></svg>
+                  </i>
+            </a>
+            <div 
+            class="navPage-subMenu navPage-subMenu-custom"
+            id="navPages-1"
+            aria-hidden="true"
+            tabindex="-1">
+                <ul class="navPage-subMenu-list">
+                    <li class="navPage-subMenu-item">
+                        <a
+                            class="navPage-subMenu-action navPages-action"
+                            href="/cupcakes/"
+                        >
+                        Cupcakes
+                        </a>
+                    </li>
+                    <li class="navPage-subMenu-item">
+                        <a
+                            class="navPage-subMenu-action navPages-action"
+                            href="/baked-goods/"
+                        >
+                        Baked Goods
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="navPages-item">
+            <a href="/custom-cakes/"
+            class="navPages-action has-subMenu"
+            data-collapsible="navPages-2">
+                Special Occasions
+                <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                    <svg><use xlink:href="#icon-chevron-down" /></svg>
+                  </i>
+            </a>
+            <div 
+            class="navPage-subMenu navPage-subMenu-custom"
+            id="navPages-2"
+            aria-hidden="true"
+            tabindex="-1">
+                <ul class="navPage-subMenu-list">
+                    <li class="navPage-subMenu-item">
+                        <a
+                            class="navPage-subMenu-action navPages-action"
+                            href="/custom-cakes/"
+                        >
+                        Custom Cakes
+                        </a>
+                    </li>
+                    <li class="navPage-subMenu-item">
+                        <a
+                            class="navPage-subMenu-action navPages-action"
+                            href="/custom-sugar-cookies/"
+                        >
+                        Custom Sugar Cookies
+                        </a>
+                    </li>
+                    <li class="navPage-subMenu-item">
+                        <a
+                            class="navPage-subMenu-action navPages-action"
+                            href="/made-to-order-sheet-cakes/"
+                        >
+                        Custom Sheet Cakes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="navPages-item">
+            <a href="/about/"
+            class="navPages-action has-subMenu"
+            data-collapsible="navPages-3">
+                About
+                <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                    <svg><use xlink:href="#icon-chevron-down" /></svg>
+                  </i>
+            </a>
+
+
+            <div 
+            class="navPage-subMenu navPage-subMenu-custom"
+            id="navPages-3"
+            aria-hidden="true"
+            tabindex="-1">
+                <ul class="navPage-subMenu-list">
+                    <li class="navPage-subMenu-item">
+                        <a
+                            class="navPage-subMenu-action navPages-action"
+                            href="/about/#about-frost"
+                        >
+                        About Frost Bake Shoppe
+                        </a>
+                    </li>
+                    <li class="navPage-subMenu-item">
+                        <a
+                            class="navPage-subMenu-action navPages-action"
+                            href="/about/#ordering-and-delivery"
+                        >
+                        Online Ordering &amp; Delivery
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li class="navPages-item">
+            <a href="/contact/" class="navPages-action">Contact</a>
+        </li>
+        <li class="navPages-item">
+            <a href="/cupcakes/" class="navPages-action">Order Online</a>
+        </li>
     </ul>
+
+
+
+    
+
     <ul class="navPages-list navPages-list--user">
         {{#if currency_selector.currencies.length '>' 1}}
             <li class="navPages-item">

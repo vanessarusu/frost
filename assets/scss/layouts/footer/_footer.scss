@@ -14,7 +14,6 @@
 
 .footer {
   background-color: $footer-background;
-  border-top: container("border");
   padding: spacing("double") 0;
   position: relative;
   transform: translateZ(0); // 3
@@ -199,12 +198,30 @@
     font-weight: 100;
     line-height: 1.6;
   }
+
+  a {
+    text-decoration: none;
+    &:hover,
+    &:focus {
+      color: #ef658a;
+    }
+  }
 }
 
 footer .copyright p {
   margin-top: 20px;
+  padding: 0 20px;
   color: #fff;
   text-align: center;
   font-size: 16px;
   font-family: "Outfit", sans-serif;
+}
+.footer [data-sub-layout]:not(:first-of-type) {
+  @media (max-width: 700px) {
+    margin-top: 40px;
+    [class^="sd-simple-text"] {
+      // text-align: center;
+      line-height: 1.4;
+    }
+  }
 }

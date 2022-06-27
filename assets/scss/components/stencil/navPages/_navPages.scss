@@ -218,7 +218,7 @@ $custom-medium-breakpoint: 1200px;
   @include breakpoint("medium") {
     display: inline-block;
     font-size: 18px;
-    padding: 20px 28px;
+    padding: 20px 1.5vw;
     // padding: spacing("half") (spacing("half") + spacing("quarter"))
     //   (spacing("half") + spacing("quarter"));
 

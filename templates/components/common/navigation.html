@@ -7,7 +7,10 @@
         alt="Location icon"
       />
     </span>
-    {{theme_settings.store-address-header}} {{/if}}
+    <a href="https://goo.gl/maps/ZoZ3pQHaRdH71xid6" target="blank" style="text-decoration: none;">
+      {{theme_settings.store-address-header}} 
+    </a>
+    {{/if}}
   </p>
   <nav class="navUser">
     {{#or customer (unless theme_settings.restrict_to_login)}} {{>

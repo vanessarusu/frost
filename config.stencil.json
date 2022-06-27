@@ -2,9 +2,13 @@
   "customLayouts": {
     "brand": {},
     "category": {
-      "custom-category.html":"/cupcakes/"
+      "custom-category.html":["/cupcakes/", "/cupcakes-by-day/"],
+      "custom-baked-goods-category.html":["/daily-menu/baked-goods/", "/baked-goods"]
     },
-    "page": {},
+    "page": {
+      "custom-page-custom-cakes.html":"/custom-cakes/",
+      "custom-page-with-yellow-swoosh.html":"/about/"
+    },
     "product": {}
   },
   "apiHost": "https://api.bigcommerce.com",

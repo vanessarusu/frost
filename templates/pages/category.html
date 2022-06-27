@@ -2,7 +2,7 @@
 category:
   shop_by_price: true
   products:
-    limit: { { theme_settings.categorypage_products_per_page } }
+    limit: 48
 ---
 
 {{inject "categoryProductsPerPage"
@@ -19,7 +19,7 @@ class="category-header-image" }} {{/if}} {{#unless
 theme_settings.hide_category_page_heading }}
 <h1 class="page-heading">{{category.name}}</h1>
 {{{region name="category_below_header"}}} {{/unless}} {{{category.description}}}
-<div class="page container">
+<div class="page">
   {{#if category.faceted_search_enabled}}
   <aside class="page-sidebar" id="faceted-search-container">
     {{> components/category/sidebar}}

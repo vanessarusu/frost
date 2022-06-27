@@ -1,0 +1,31 @@
+---
+category:
+  shop_by_price: true
+  products:
+    limit: 48
+---
+
+{{inject "categoryProductsPerPage"
+theme_settings.categorypage_products_per_page}} {{#partial "head"}} {{#if
+pagination.category.previous}}
+<link rel="prev" href="{{pagination.category.previous}}" />
+{{/if}} {{#if pagination.category.next}}
+<link rel="next" href="{{pagination.category.next}}" />
+{{/if}} {{/partial}} {{#partial "page"}}
+<h1 class="page-heading sr-only">{{category.name}}</h1>
+<div class="baked-fresh-watermark-right baked-goods-category"></div>
+<div class="container">{{{region name="category_below_header"}}}</div>
+<div class="container">
+  <div class="custom-product-grid four-columns baked-goods">
+    {{#all category.products}} {{/all}} {{#each category.products}} {{>
+    components/category/daily-specials-listing}}{{/each}}
+  </div>
+</div>
+<div class="container">{{{region name="daily_menu_intro_panel"}}}</div>
+
+{{/partial}} {{> layout/base}}
+
+<script>
+  window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";
+</script>
+<script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>

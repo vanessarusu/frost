@@ -3,7 +3,13 @@ import CatalogPage from "./catalog";
 import compareProducts from "./global/compare-products";
 import FacetedSearch from "./common/faceted-search";
 import { createTranslationDictionary } from "../theme/common/utils/translations-utils";
+
+// import React from "react";
+// import DailyMenuPartial from "../components/DailyMenuPartial";
+// import { createRoot } from "react-dom/client";
+
 import DailyMenu from "./daily-menu";
+// import * as getItems from "./api-calls/cupcakes-category-service";
 
 export default class Category extends CatalogPage {
   constructor(context) {

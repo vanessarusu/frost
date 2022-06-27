@@ -241,11 +241,16 @@
                   data-cart-item-add>
                 <input type="hidden" name="action" value="add">
                 <input type="hidden" name="product_id" value="{{product.id}}"/>
-                <div data-product-option-change style="display:none;">
-                    {{inject 'showSwatchNames' theme_settings.show_product_swatch_names}}
-                    {{#each product.options}}
-                        {{{dynamicComponent 'components/products/options'}}}
-                    {{/each}}
+                <div class="custom-product-options-wrapper">
+
+                    {{> components/products/custom-quantity-ui}}
+                    <div data-product-option-change style="display:none;">
+                        {{inject 'showSwatchNames' theme_settings.show_product_swatch_names}}
+                        {{inject 'fulfillmentAvailability' product.category}}
+                        {{#each product.options}}
+                            {{{dynamicComponent 'components/products/options'}}}
+                        {{/each}}
+                    </div>
                 </div>
                 <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
@@ -253,6 +258,7 @@
                         <span data-product-stock>{{product.stock_level}}</span>
                     </label>
                 </div>
+
                 {{> components/products/add-to-cart}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
@@ -272,22 +278,15 @@
 </div>
 <div style="clear: both;"></div>
 </div>
-    
-
-    <!-- <article class="productView-description">
-        {{#if theme_settings.show_product_details_tabs}}
-            {{> components/products/description-tabs}}
-        {{else}}
-            {{> components/products/description}}
-        {{/if}}
-    </article> -->
 
 
     {{#if product.related_products}}
     <article class="custom-related-products-container">
         <h2 class="underline-pink">Other Favorites</h2>
-        {{#each product.related_products}}
+        
         <div class="custom-related-products">
+            {{#all product.related_products}}{{/all}}
+        {{#each product.related_products}}
             <div class="custom-related-item">
                 <a href="{{url}}">
                     <figure class="custom-card-img-container">
@@ -298,14 +297,16 @@
                             lazyload=theme_settings.lazyload_mode
                             default_image=theme_settings.default_image_product
                         }}
-                        <figcaption>
-                            {{name}}
-                        </figcaption>
+                        
                     </figure>
+                    <h4 class="related-item-name">
+                        {{name}}
+                    </h4>
                 </a>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
+        
         
     </article>
     {{/if}}
@@ -316,3 +317,7 @@
     <div class="modal-content"></div>
     <div class="loadingOverlay"></div>
 </div>
+
+<script>
+    var jsContext = JSON.parse({{jsContext}});
+</script>

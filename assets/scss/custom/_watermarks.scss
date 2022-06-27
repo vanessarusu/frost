@@ -9,17 +9,25 @@
 .home-watermark-icon-right {
   right: 0;
   top: -150px;
+  @media (max-width: 700px) {
+    top: -950px;
+  }
 }
 
 .home-watermark-icon-left {
   left: 0;
   top: -850px;
+  @media (max-width: 700px) {
+    top: -1050px;
+    display: none;
+  }
 }
 .category-watermark-icon-right {
   position: absolute;
   right: 0;
   top: 200px;
   max-width: 220px;
+  z-index: -10;
 }
 
 .baked-fresh-watermark-right {
@@ -28,16 +36,21 @@
   right: 0;
   width: 240px;
   height: 314px;
-  background: url(/assets/img/watermarks/baked-fresh-yum-watermark-right-pink.svg)
+  background: url(../img/watermarks/baked-fresh-yum-watermark-right-pink.svg)
     center center no-repeat;
   background-size: contain;
   z-index: -10;
+
+  &.baked-goods-category {
+    top: 200px;
+  }
 }
 
 @media (max-width: 700px) {
   .baked-fresh-watermark-right,
   .category-watermark-icon-right {
-    max-width: 180px;
+    max-width: 100px;
+    opacity: 0.4;
   }
 }
 

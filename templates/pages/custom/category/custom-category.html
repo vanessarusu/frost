@@ -1,13 +1,13 @@
 ---
 category:
-  shop_by_price: false
+  shop_by_price: true
   products:
-    limit: { { theme_settings.categorypage_products_per_page } }
+    limit: 48
 ---
 
 {{inject "categoryProductsPerPage"
-theme_settings.categorypage_products_per_page}} {{inject "categoryId"
-category.id}} {{#partial "head"}} {{#if pagination.category.previous}}
+theme_settings.categorypage_products_per_page}} {{#partial "head"}} {{#if
+pagination.category.previous}}
 <link rel="prev" href="{{pagination.category.previous}}" />
 {{/if}} {{#if pagination.category.next}}
 <link rel="next" href="{{pagination.category.next}}" />
@@ -19,8 +19,15 @@ category.id}} {{#partial "head"}} {{#if pagination.category.previous}}
   alt=""
 />
 <div class="container">{{{region name="category_below_header"}}}</div>
+<div class="container">
+  <div class="custom-product-grid four-columns">
+    {{#all category.products}} {{/all}}{{#each category.products}} {{#contains
+    category "Cupcakes/Everyday"}} {{>
+    components/category/daily-specials-listing}} {{/contains}}{{/each}}
+  </div>
+</div>
+<div class="container">{{{region name="daily_menu_intro_panel"}}}</div>
 <div class="swoosh-background-yellow">
-  <div class="container">{{{region name="daily_menu_intro_panel"}}}</div>
   <div class="container">
     <div class="daily-menu-navigation">
       <nav>
@@ -51,28 +58,81 @@ category.id}} {{#partial "head"}} {{#if pagination.category.previous}}
         </ul>
       </nav>
     </div>
+
     <div class="daily-menu-container">
+      <!-- Monday -->
       <div class="daily-menu-item monday day-1 closed">
-        {{{region name="daily_menu_area-monday"}}}
+        <div class="daily-menu-item-content">
+          {{{region name="daily_menu_area-monday"}}}
+        </div>
+        <div class="custom-product-grid three-columns offset">
+          {{#all category.products}} {{#each category.products}} {{#contains
+          category "Cupcakes/Monday"}} {{>
+          components/category/daily-specials-listing}} {{/contains}}
+          {{/each}}{{/all}}
+        </div>
       </div>
+      <!-- Tuesday  -->
       <div class="daily-menu-item tuesday day-2 closed">
-        {{{region name="daily_menu_area-tuesday"}}}
+        <div class="daily-menu-item-content">
+          {{{region name="daily_menu_area-tuesday"}}}
+        </div>
+        <div class="custom-product-grid three-columns offset">
+          {{#all category.products}} {{#each category.products}} {{#contains
+          category "Cupcakes/Tuesday"}} {{>
+          components/category/daily-specials-listing}} {{/contains}}
+          {{/each}}{{/all}}
+        </div>
       </div>
       <div class="daily-menu-item wednesday day-3 closed">
-        {{{region name="daily_menu_area-wednesday"}}}
+        <div class="daily-menu-item-content">
+          {{{region name="daily_menu_area-wednesday"}}}
+        </div>
+        <div class="custom-product-grid three-columns offset">
+          {{#all category.products}} {{#each category.products}} {{#contains
+          category "Cupcakes/Wednesday"}} {{>
+          components/category/daily-specials-listing}} {{/contains}}
+          {{/each}}{{/all}}
+        </div>
       </div>
       <div class="daily-menu-item thursday day-4 closed">
-        {{{region name="daily_menu_area-thursday"}}}
+        <div class="daily-menu-item-content">
+          {{{region name="daily_menu_area-thursday"}}}
+        </div>
+        <div class="custom-product-grid three-columns offset">
+          {{#all category.products}} {{#each category.products}} {{#contains
+          category "Cupcakes/Thursday"}} {{>
+          components/category/daily-specials-listing}} {{/contains}}
+          {{/each}}{{/all}}
+        </div>
       </div>
       <div class="daily-menu-item friday day-5 closed">
-        {{{region name="daily_menu_area-friday"}}}
+        <div class="daily-menu-item-content">
+          {{{region name="daily_menu_area-friday"}}}
+        </div>
+        <div class="custom-product-grid three-columns offset">
+          {{#all category.products}} {{#each category.products}} {{#contains
+          category "Cupcakes/Friday"}} {{>
+          components/category/daily-specials-listing}} {{/contains}}
+          {{/each}}{{/all}}
+        </div>
       </div>
       <div class="daily-menu-item saturday day-6 closed">
-        {{{region name="daily_menu_area-saturday"}}}
+        <div class="daily-menu-item-content">
+          {{{region name="daily_menu_area-saturday"}}}
+        </div>
+
+        <div class="custom-product-grid three-columns offset">
+          {{#all category.products}} {{#each category.products}} {{#contains
+          category "Cupcakes/Saturday"}} {{>
+          components/category/daily-specials-listing}} {{/contains}}
+          {{/each}}{{/all}}
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 {{/partial}} {{> layout/base}}
 
 <script>
